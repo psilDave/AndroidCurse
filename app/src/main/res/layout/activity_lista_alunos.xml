@@ -20,6 +20,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         app:srcCompat="@android:drawable/ic_input_add"
-        android:focusable="true" />
+        android:focusable="true"
+        android:contentDescription="@string/fab_add_aluno_description" />
 
 </RelativeLayout>

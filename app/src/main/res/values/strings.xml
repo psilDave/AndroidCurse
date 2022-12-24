@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Agenda</string>
     <string name="nome">Nome</string>
-    <string name="telefone_99999_9999">Telefone: () 99999-9999</string>
+    <string name="telefone_99999_9999">Telefone: () 99999–9999</string>
     <string name="email">Email</string>
+    <string name="salvar_aluno">Salvar aluno</string>
+    <string name="remover">Remover</string>
+    <string name="fab_add_aluno_description">Botão utilizado para adiccionar um aluno a lista de alunos</string>
 </resources>

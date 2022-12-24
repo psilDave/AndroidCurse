@@ -29,7 +29,7 @@ public class AlunoDAO {
     }
 
     public void editaAluno(Aluno aluno) {
-        Aluno alunoEncontrado = null;
+        Aluno alunoEncontrado;
         alunoEncontrado = buscaAlunoPeloID(aluno);
         if (alunoEncontrado != null) {
             int posicaoDoAlunoEncontrado = listaAlunos.indexOf(alunoEncontrado);
@@ -46,4 +46,10 @@ public class AlunoDAO {
         return null;
     }
 
+    public void remove(Aluno alunoSelecionado) {
+        Aluno alunoDevolvido = buscaAlunoPeloID(alunoSelecionado);
+        if (alunoDevolvido != null){
+            listaAlunos.remove(alunoDevolvido);
+        }
+    }
 }
