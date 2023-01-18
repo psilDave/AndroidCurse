@@ -1,5 +1,6 @@
 package com.example.agenda.ui.activity;
 
+import static com.example.agenda.ui.activity.ConstantsActivities.ACTIVITY_LISTA_DE_ALUNOS_TITULO;
 import static com.example.agenda.ui.activity.ConstantsActivities.CHAVE_ALUNO_SELECIONADO;
 
 import android.content.Intent;
@@ -16,17 +17,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenda.R;
-import com.example.agenda.dao.AlunoDAO;
 import com.example.agenda.model.Aluno;
 import com.example.agenda.ui.ListaAlunosView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
-    public static final String ACTIVITY_LISTA_DE_ALUNOS_TITULO = "LISTA DE ALUNOS";
-    private final AlunoDAO dao = new AlunoDAO();
-    private final ListaAlunosView listaAlunosView = new ListaAlunosView(this);
-
+    private ListaAlunosView listaAlunosView;
 
 
     @Override
@@ -35,6 +32,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
         Toast.makeText(this, "ABRINDO MEU PRIMEIRO APP", Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_lista_alunos);
         setTitle(ACTIVITY_LISTA_DE_ALUNOS_TITULO);
+        listaAlunosView = new ListaAlunosView(this);
         configuraListaDeAlunos();
         configuracaoBotaoAdicionarAluno();
 
@@ -45,7 +43,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onResume();
         listaAlunosView.atualizaListaDeAlunos();
     }
-
 
 
     @Override
@@ -62,8 +59,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         }
         return super.onContextItemSelected(item);
     }
-
-
 
 
     private void configuracaoBotaoAdicionarAluno() {

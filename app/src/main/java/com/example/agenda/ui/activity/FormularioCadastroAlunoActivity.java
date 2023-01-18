@@ -1,5 +1,7 @@
 package com.example.agenda.ui.activity;
 
+import static com.example.agenda.ui.activity.ConstantsActivities.ACTIVITY_FORMULARIO_DE_CADASTRO_DE_ALUNO_TITULO;
+import static com.example.agenda.ui.activity.ConstantsActivities.ACTIVITY_FORMULARIO_DE_CADASTRO_PARA_EDITAR_ALUNO_TITULO;
 import static com.example.agenda.ui.activity.ConstantsActivities.CHAVE_ALUNO_SELECIONADO;
 
 import android.content.Intent;
@@ -12,14 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenda.R;
-import com.example.agenda.dao.AlunoDAO;
+import com.example.agenda.database.AgendaDatabase;
+import com.example.agenda.database.dao.AlunoDAO;
 import com.example.agenda.model.Aluno;
 
 public class FormularioCadastroAlunoActivity extends AppCompatActivity {
 
-    private static final String ACTIVITY_FORMULARIO_DE_CADASTRO_DE_ALUNO_TITULO = "NOVO ALUNO";
-    private static final String ACTIVITY_FORMULARIO_DE_CADASTRO_PARA_EDITAR_ALUNO_TITULO = "EDITAR ALUNO";
-    private static final AlunoDAO dao = new AlunoDAO();
+
+    private AlunoDAO dao;
     private EditText campoNome;
     private EditText campoTelefone;
     private EditText campoEmail;
@@ -30,6 +32,7 @@ public class FormularioCadastroAlunoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_cadastro_aluno);
         setCamposDoLayoutDoFormularioDeCadastros();
+        dao = AgendaDatabase.getInstance(this).getRoomAlunoDAO();
         setAluno();
     }
 
@@ -75,7 +78,6 @@ public class FormularioCadastroAlunoActivity extends AppCompatActivity {
         String nome = campoNome.getText().toString();
         String telefone = campoTelefone.getText().toString();
         String email = campoEmail.getText().toString();
-
         aluno.setNome(nome);
         aluno.setEmail(email);
         aluno.setTelefone(telefone);

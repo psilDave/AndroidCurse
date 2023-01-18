@@ -55,7 +55,7 @@ public class ListaAlunosAdapter extends BaseAdapter {
         return LayoutInflater.from(context).inflate(R.layout.item_aluno, viewGroup, false);
     }
 
-    public void atualiza(List<Aluno> alunos){
+    public void atualiza(List<Aluno> alunos) {
         this.alunos.clear();
         this.alunos.addAll(alunos);
         notifyDataSetChanged();
