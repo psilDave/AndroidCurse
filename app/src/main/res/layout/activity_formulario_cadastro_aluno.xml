@@ -19,11 +19,23 @@
             android:minHeight="48dp" />
 
         <EditText
+            android:id="@+id/activity_formulario_aluno_campo_celular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="@string/telefone_fixo"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
+
+
+        <EditText
             android:id="@+id/activity_formulario_aluno_campo_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="@string/telefone_99999_9999"
+            android:hint="@string/telefone_celular"
             android:importantForAutofill="no"
             android:inputType="phone"
             android:minHeight="48dp"

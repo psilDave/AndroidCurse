@@ -15,7 +15,6 @@ public class Aluno implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int ID = 0;
     private String nome;
-    private String telefone;
     private String email;
     private Calendar momentoDeCadasto = Calendar.getInstance();
 
@@ -25,14 +24,6 @@ public class Aluno implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public String getEmail() {

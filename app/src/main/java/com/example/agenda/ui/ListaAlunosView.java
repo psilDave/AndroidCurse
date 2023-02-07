@@ -8,6 +8,8 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.example.agenda.asynctask.BuscaAlunoTask;
+import com.example.agenda.asynctask.RemoveAlunoTask;
 import com.example.agenda.database.AgendaDatabase;
 import com.example.agenda.database.dao.AlunoDAO;
 import com.example.agenda.model.Aluno;
@@ -22,16 +24,15 @@ public class ListaAlunosView {
     public ListaAlunosView(Context context) {
         this.context = context;
         this.adapter = new ListaAlunosAdapter(context);
-        this.dao = AgendaDatabase.getInstance(context).getRoomAlunoDAO();
+        this.dao = AgendaDatabase.getInstance(context).getAlunoDAO();
     }
 
     public void atualizaListaDeAlunos() {
-        adapter.atualiza(dao.getTodosAlunos());
+        new BuscaAlunoTask(dao, adapter).execute();
     }
 
     public void remove(Aluno alunoSelecionado) {
-        dao.remove(alunoSelecionado);
-        adapter.remove(alunoSelecionado);
+        new RemoveAlunoTask(dao, adapter, alunoSelecionado).execute();
     }
 
     public void setAdapter(ListView lista_de_alunos) {
